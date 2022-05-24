@@ -6,6 +6,8 @@ import { getProducts } from '../store/products/selectors'
 
 import { fetchProductsRequest } from '../store/products/actions'
 
+import ProductsCardList from '../components/ProductsCardList'
+
 const Home: NextPage = () => {
   const dispatch = useDispatch()
 
@@ -17,9 +19,7 @@ const Home: NextPage = () => {
 
   return (
     <div>
-      {products.map(product => (
-        <div key={product.id}>{product.title}</div>
-      ))}
+      <ProductsCardList products={products} />
     </div>
   )
 }

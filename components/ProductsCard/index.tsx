@@ -1,7 +1,9 @@
-/* eslint-disable @next/next/no-img-element */
-import { Product } from "../../types/Product"
-
+import Image from "next/image"
 import Link from "next/link"
+
+import { sanitizeStringForUrl } from "../../utils/url"
+
+import { Product } from "types/Product"
 
 const ProductsCard = ({
   id,
@@ -11,12 +13,24 @@ const ProductsCard = ({
   category,
   image,
   rating,
-}: Product)=>{
+}: Product) => {
   const { rate, count } = rating
 
-  return(
+  const sanitazeCategory = sanitizeStringForUrl(category)
+  const sanitazeTitle = sanitizeStringForUrl(title)
+  const sanitizeUrl = `/${sanitazeCategory}/${id}/${sanitazeTitle}`
+
+  return (
     <div>
-      <img src={image} alt={description} />
+      <div style={{ position: 'relative', width: '100%', paddingTop: '100%' }}>
+        <Image
+          src={image}
+          alt={description}
+          layout='fill'
+          objectFit='contain'
+          priority
+        />
+      </div>
       <div>
         <span>{rate}</span>
         <span>{count}</span>
@@ -27,7 +41,7 @@ const ProductsCard = ({
         <div>{price}</div>
         <p>{description}</p>
       </div>
-      <Link href={`/${category.replaceAll(' ', '_')}/${id}/${title.replaceAll(' ', '_')}`}>Detail</Link>
+      <Link href={sanitizeUrl}>Detail</Link>
       <button>Add to cart</button>
     </div>
   )

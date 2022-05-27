@@ -1,5 +1,6 @@
-import { Product } from "../../types/Product"
-import ProductsCard from "../ProductsCard"
+import { Product } from "types/Product"
+
+import ProductsCard from "components/ProductsCard"
 
 const ProductsCardList = ({ products }: { products: Product[] }) => {
   return (

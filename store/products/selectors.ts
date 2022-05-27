@@ -1,4 +1,4 @@
-import { AppState } from "../rootReducer";
+import { AppState } from "store/rootReducer";
 
 export const getError = (state: AppState) => state.products.error
 export const getIsFetching = (state: AppState) => state.products.isFetching

@@ -1,7 +1,7 @@
 import axios, { AxiosResponse } from 'axios'
 import { call, put } from 'redux-saga/effects'
 
-import { Product } from '../../types/Product'
+import { Product } from 'types/Product'
 
 import { fetchProductsSuccess, fetchProductsFailure } from './actions'
 

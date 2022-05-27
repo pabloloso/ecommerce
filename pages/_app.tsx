@@ -1,9 +1,9 @@
 import type { AppProps } from 'next/app'
 import { Provider } from 'react-redux'
 
-import composeStore from '../store'
+import composeStore from 'store'
 
-import Header from '../components/Header'
+import Header from 'components/Header'
 
 const store = composeStore()
 

@@ -2,11 +2,10 @@ import type { NextPage } from 'next'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
-import { getProducts } from '../store/products/selectors'
+import { fetchProductsRequest } from 'store/products/actions'
+import { getProducts } from 'store/products/selectors'
 
-import { fetchProductsRequest } from '../store/products/actions'
-
-import ProductsCardList from '../components/ProductsCardList'
+import ProductsCardList from 'components/ProductsCardList'
 
 const Home: NextPage = () => {
   const dispatch = useDispatch()

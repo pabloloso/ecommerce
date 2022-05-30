@@ -1,4 +1,3 @@
-import type { NextPage } from 'next'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 
@@ -7,7 +6,7 @@ import { getProducts } from 'store/products/selectors'
 
 import ProductsCardList from 'components/ProductsCardList'
 
-const Home: NextPage = () => {
+const HomePage = () => {
   const dispatch = useDispatch()
 
   const products = useSelector(getProducts)
@@ -23,4 +22,4 @@ const Home: NextPage = () => {
   )
 }
 
-export default Home
+export default HomePage

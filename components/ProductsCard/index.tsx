@@ -1,20 +1,28 @@
+import { useContext } from "react"
 import Image from "next/image"
 import Link from "next/link"
 
-import { sanitizeStringForUrl } from "../../utils/url"
+import { CartContext } from "context/CartContext"
 
-import { Product } from "types/Product"
+import { sanitizeStringForUrl } from "utils/url"
 
-const ProductsCard = ({
-  id,
-  title,
-  price,
-  description,
-  category,
-  image,
-  rating,
-}: Product) => {
-  const { rate, count } = rating
+import LinkComponent from "components/Link"
+
+import { ProductsCardProps } from './interfaces'
+
+import styles from './styles.module.scss'
+
+const ProductsCard = ({ product }: ProductsCardProps) => {
+  const { handleAddToCart } = useContext(CartContext)
+
+  const {
+    id,
+    title,
+    price,
+    description,
+    category,
+    image,
+  } = product
 
   const sanitazeCategory = sanitizeStringForUrl(category)
   const sanitazeTitle = sanitizeStringForUrl(title)
@@ -31,18 +39,15 @@ const ProductsCard = ({
           priority
         />
       </div>
-      <div>
-        <span>{rate}</span>
-        <span>{count}</span>
+      <div className={styles.products_card__info}>
+        <LinkComponent href={sanitizeUrl}>
+          <h4 className={styles.products_card__title}>{title}</h4>
+        </LinkComponent>
+        <div className={styles.products_card__price}>
+          <div>{price} €</div>
+        </div>
+        <button onClick={() => handleAddToCart(product)}>Add to cart</button>
       </div>
-      <h4>{title}</h4>
-      <div>{category}</div>
-      <div>
-        <div>{price}</div>
-        <p>{description}</p>
-      </div>
-      <Link href={sanitizeUrl}>Detail</Link>
-      <button>Add to cart</button>
     </div>
   )
 }

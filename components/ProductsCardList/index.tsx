@@ -1,20 +1,16 @@
-import { Product } from "types/Product"
-
 import ProductsCard from "components/ProductsCard"
 
-const ProductsCardList = ({ products }: { products: Product[] }) => {
+import { ProductsCardList } from "./interfaces"
+
+import styles from './styles.module.scss'
+
+const ProductsCardList = ({ products }: ProductsCardList) => {
   return (
-    <div>
+    <div className={styles.products_card_list_container}>
       {products.map(product => (
         <ProductsCard
           key={product.id}
-          id={product.id}
-          title={product.title}
-          price={product.price}
-          description={product.description}
-          category={product.category}
-          image={product.image}
-          rating={product.rating}
+          product={product}
         />
       ))}
     </div>

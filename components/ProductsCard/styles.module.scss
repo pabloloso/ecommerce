@@ -1,0 +1,20 @@
+.products_card__info {
+  padding: 15px 0px;
+}
+
+.products_card__title {
+  color: #000000;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 1.5em;
+
+  &:hover {
+    color: #ff9900;
+  }
+}
+
+.products_card__price {
+  margin-bottom: 20px;
+  color: #B12704;
+  font-size: 14px;
+}

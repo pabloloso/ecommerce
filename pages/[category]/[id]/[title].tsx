@@ -1,9 +1,9 @@
 /* eslint-disable @next/next/no-img-element */
 import axios from "axios"
 
-import { Product } from "../../../types/Product"
+import { Product } from "types/Product"
 
-const ProductDetailPage = ({ product }: { product: Product}) => {
+const ProductDetailPage = ({ product }: { product: Product }) => {
   const { rate, count } = product.rating
 
   return(
